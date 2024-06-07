@@ -1,0 +1,42 @@
+chrome.runtime.onInstalled.addListener(() => {
+    chrome.alarms.create('checkNewResponses', { periodInMinutes: 5 });
+  });
+  
+  chrome.alarms.onAlarm.addListener((alarm) => {
+    if (alarm.name === 'checkNewResponses') {
+      checkNewResponses();
+    }
+  });
+  
+  function checkNewResponses() {
+    // Fetch new responses from WordPress.org
+    fetch('https://wordpress.org/support/view/no-replies/')
+      .then(response => response.text())
+      .then(data => {
+        // Parse the response to find the count of new responses
+        let newResponseCount = parseNewResponses(data);
+        updateBadge(newResponseCount);
+      });
+  }
+  
+  function parseNewResponses(html) {
+    // Implement a parser to count new responses from the HTML
+    let parser = new DOMParser();
+    let doc = parser.parseFromString(html, 'text/html');
+    let responseElements = doc.querySelectorAll('.bbp-topic-freshness');
+    let newResponseCount = 0;
+  
+    responseElements.forEach(element => {
+      if (element.textContent.includes('minute') || element.textContent.includes('hour')) {
+        newResponseCount++;
+      }
+    });
+  
+    return newResponseCount;
+  }
+  
+  function updateBadge(count) {
+    chrome.action.setBadgeText({ text: count.toString() });
+    chrome.action.setBadgeBackgroundColor({ color: '#4688F1' });
+  }
+  
