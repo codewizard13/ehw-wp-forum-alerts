@@ -10,7 +10,7 @@ The WordPress Support Tracker Chrome Extension is designed to help users monitor
 ## Directory Tree
 
 ```
-wordpress-support-tracker/
+ehw-wp-forum-alerts/
 │
 ├── icons/
 │   ├── icon16.png
@@ -34,7 +34,7 @@ wordpress-support-tracker/
 2. **Load the Extension**:
     - Open Chrome and go to `chrome://extensions/`.
     - Enable "Developer mode" (toggle switch in the top right corner).
-    - Click "Load unpacked" and select the `wordpress-support-tracker/` directory.
+    - Click "Load unpacked" and select the `ehw-wp-forum-alerts/` directory.
 
 3. **Log In**:
     - Click on the extension icon in the Chrome toolbar.
