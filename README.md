@@ -1,7 +1,9 @@
 # WordPress Support Tracker Chrome Extension
 
 **Creator**: Eric Hepperle  
-**Date**: 2024-06-07  
+**Date**: 2024-06-07
+
+!!! THIS PROJECT IS NOT YET FUNCTIONAL !!!
 
 ## Purpose
 
